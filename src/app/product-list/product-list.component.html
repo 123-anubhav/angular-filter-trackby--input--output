@@ -1,0 +1,45 @@
+<div class="container">
+    <app-product-count [electronic]="electronicItemTotal" [electric]="electricCount" [grocery]="groceryCount"
+        (radioBtnValue)="onCategorySelected($event)" />
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <td>S.No.</td>
+                <td>Product Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td>Discount</td>
+                <td>Actual Price</td>
+                <td>Expiry Date</td>
+                <td>Expary Date (In Days)</td>
+                <td>Rating</td>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let prod of product;let i=index; trackBy: trackByProductId">
+                <tr
+                    *ngIf="prod.category.toLowerCase() === selectedCategory.toLowerCase() || selectedCategory === ''">
+                    <td><b>{{i+1}}</b></td>
+                    <td>{{prod.productName}}</td>
+                    <td>{{prod.qty}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.discount}}</td>
+                    <td>{{prod.price-(prod.price*prod.discount/100)}}</td>
+                    <td>{{prod.expiryDate | date:'mediumDate'}}</td>
+                    <td>{{prod.expiryDate | expiryDaysCount}}</td>
+                    <td>{{prod.rating}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<div class="container">
+    <input type="button" (click)="loadData()" value="getData" />
+</div>
