@@ -1,7 +1,7 @@
-# angular-filter-trackby--input--output
+# angular-filter-trackby--input--output-custom_pipes-custom_directive
 filter is like in real time use case filter mobile by brand, price like that implemented
 
-# Angular Filter, TrackBy, @Input and @Output Implementation
+# Angular Filter, TrackBy, @Input and @Output,Custom-Pipes,Custom-Directive Implementation
 
 ## Project Overview
 
